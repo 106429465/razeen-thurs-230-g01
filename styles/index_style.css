@@ -1,5 +1,1 @@
-header {
-    text-align: center;
-    background-color: lime;
-    color: black;
-}
+@import "style.css";
