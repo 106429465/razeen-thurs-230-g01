@@ -1,0 +1,32 @@
+@import "style.css";
+
+body {
+  background-color: #f8f8f8;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+a:hover {
+  background-color: #00000000;
+}
+
+.go-back {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 18px 36px;
+  background-color: #000000;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.go-back a {
+  color: white;
+  text-decoration: none;
+}
+
+.go-back:hover {
+  background-color: #333333;
+}
