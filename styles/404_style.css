@@ -8,10 +8,6 @@ body {
   padding: 50px;
 }
 
-a:hover {
-  background-color: #00000000;
-}
-
 .go-back {
   display: inline-block;
   margin-top: 20px;
@@ -30,4 +26,8 @@ a:hover {
 
 .go-back:hover {
   background-color: var(--button-hover-background-color);
+}
+
+.go-back a:hover {
+  background-color: var(--button-hover-background-color) !important;
 }
