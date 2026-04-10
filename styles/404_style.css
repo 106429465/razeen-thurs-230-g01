@@ -1,7 +1,8 @@
 @import "style.css";
 
 body {
-  background-color: #f8f8f8;
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: 'Arial', sans-serif;
   text-align: center;
   padding: 50px;
@@ -15,8 +16,8 @@ a:hover {
   display: inline-block;
   margin-top: 20px;
   padding: 18px 36px;
-  background-color: #000000;
-  color: white;
+  background-color: var(--button-background-color);
+  color: var(--button-color);
   font-size: 18px;
   text-decoration: none;
   border-radius: 5px;
@@ -28,5 +29,5 @@ a:hover {
 }
 
 .go-back:hover {
-  background-color: #333333;
+  background-color: var(--button-hover-background-color);
 }
