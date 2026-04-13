@@ -22,13 +22,13 @@
     <main id="main-content">
      <p>We would love for you to be a part of our team, please fill out the form below and we'll get back to you shortly!</p>
      <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
-       <label for="job reference number">Job reference number</label>
+       <label for="job_ref_num">Job reference number</label>
         <input type="text" id="job_ref_num" name="job reference number" required pattern=".{5}"><br><br>
-       <label for="first name">First name</label>
+       <label for="first_name">First name</label>
         <input type="text" id="first_name" name="first name" required pattern="[A-za-z]{1,20}"><br><br>
-       <label for="last name">Last name</label>
+       <label for="last_name">Last name</label>
         <input type="text" id="last_name" name="last name" required pattern="[A-za-z]{1,20}"><br><br>
-       <label for="date of birth">Date of birth</label>
+       <label for="date_of_birth">Date of birth</label>
         <input type="date" id="date_of_birth" name="date of birth" required ><br><br>
         <fieldset>
        <legend for="gender">Gender</legend><br><br>
@@ -38,8 +38,8 @@
         <label for="female" class="gender">Female</label>
         <input type="radio" id="other" name="gender" value="other" required>
         <label for="other" class="gender">Other</label><br><br>
-        </fieldset>
-        <label for="street address">Street address</label>
+        </fieldset><br><br>
+        <label for="street_address">Street address</label>
         <input type="text" id="street_address" name="street address" required><br><br>
         <label for="suburb">Suburb</label>
         <input type="text" id="suburb" name="suburb" required><br><br>
@@ -55,9 +55,11 @@
           <option value="TAS">TAS</option>
           <option value="ACT">ACT</option>
           </select><br><br>
+        <label for="postcode">Postcode</label>
+        <input type="text" id="postcode" name="postcode" required pattern="[0-9]{4}"><br><br>
        <label for="email">Email</label>
         <input type="email" id="email" name="email" required><br><br>
-       <label for="phone number">Phone number</label>
+       <label for="phone_number">Phone number</label>
         <input type="tel" id="phone_number" name="phone number" required pattern="[0-9]{8,12}"><br><br>
         <fieldset>
         <legend for="skills">Skills</legend><br><br>
@@ -68,12 +70,12 @@
         <input type="checkbox" id="problem solving" name="skills" value="problem solving">
         <label for="problem solving" class="skills">Problem solving</label><br>
         <input type="checkbox" id="time_management" name="skills" value="time management">
-        <label for="time management" class="skills">Time management</label><br>
+        <label for="time_management" class="skills">Time management</label><br>
         <input type="checkbox" id="adaptability" name="skills" value="adaptability">
         <label for="adaptability" class="skills">Adaptability</label><br><br>
-        <label for="Other skills">Other skills</label><br><br>
+        <label for="other_skills">Other skills</label><br><br>
         <textarea id="other_skills" name="other skills" placeholder="Other skills"></textarea><br><br>
-          </fieldset>
+          </fieldset><br><br>
         <input type="submit" value="Submit">
         </form>
     </main>
