@@ -1,96 +1,98 @@
 #nav {
-  text-align: center;
-  background-color: var(--accent-color);
-  padding: 7px 8px;
+    text-align: center;
+    background-image: linear-gradient(to left, var(--accent-color) 85%, transparent 100%);
+    padding: 0.5em 1.4em 0.5em 5em;
+    position: absolute;
+    right: 0;
 }
 
 #nav ul {
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    list-style-type: none;
 }
 
 #nav ul li {
-  text-align: center;
+    text-align: center;
 }
 
 #nav a {
-  padding: 14px 16px;
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
+    padding: 14px 16px;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .nav_active {
-  border-right: 1px solid black;
-  border-left: 1px solid black;
-  background-color: var(--background-color);
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background-color: var(--background-color);
 }
 
 #nav ul li {
-  position: relative;
-  display: inline-block;
-  color: #0087ca;
+    position: relative;
+    display: inline-block;
+    color: #0087ca;
 }
 
 #nav li::after {
-  content: '';
-  position: absolute;
-  width: 80%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  background-color: black;
-  left: 10%;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+    content: '';
+    position: absolute;
+    width: 80%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    background-color: black;
+    left: 10%;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
 }
 
 #nav li:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 @view-transition {
-  navigation: auto;
+    navigation: auto;
 }
 
 @keyframes FadeOut {
-  from {
-    opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
 
-  to {
-    opacity: 0;
-  }
+    to {
+     opacity: 0;
+     }
 }
 
 @keyframes FadeIn {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 main {
-  view-transition-name: main-content;
+    view-transition-name: main-content;
 }
 
 ::view-transition-group(main-content) {
-  background: var(--background-color);
+    background: var(--background-color);
 }
 
 ::view-transition-old(main-content) {
-  animation: FadeOut 0.5s ease-out both;
+    animation: FadeOut 0.5s ease-out both;
 }
 
 ::view-transition-new(main-content) {
-  opacity: 0;
-  animation: FadeIn 0.25s ease-in 0.25s both;
+    opacity: 0;
+    animation: FadeIn 0.25s ease-in 0.25s both;
 }
 
 :root {
@@ -120,9 +122,16 @@ main {
 }
 
 header {
-  text-align: center;
-  background-color: var(--primary-color);
-  color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1678c3;
+    padding-bottom: 1em;
+}
+
+header img {
+    width: 7em;
+    height: auto;
 }
 
 body {
@@ -133,7 +142,6 @@ body {
   padding: 0;
 }
 
-
 a {
   color: black;
   text-align: center;
@@ -143,3 +151,5 @@ a {
 a:hover:not(#nav a) {
   background-color: gray;
 }
+
+
