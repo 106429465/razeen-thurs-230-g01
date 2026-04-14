@@ -66,3 +66,18 @@ form:hover .fa {
     background: #051b33;
     color: var(--search-color);
 }
+
+img {
+    width: 20em;
+}
+
+table {
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+}
+
+table td {
+    padding-bottom: 2em;
+}
