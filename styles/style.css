@@ -168,6 +168,10 @@ a {
     position: relative;
     display: inline-block;
     text-decoration: none;
+    color: var(--text-color);
+}
+
+a:not(#nav *) {
     font-weight: bold;
     color: var(--link-color);
 }
@@ -180,9 +184,13 @@ a::after {
     transform: scaleX(0);
     height: 2px;
     bottom: 0;
-    background-color: var(--link-color);
+    background-color: var(--text-color);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
+}
+
+a:not(#nav *)::after {
+    background-color: var(--link-color);
 }
 
 a:hover::after {
