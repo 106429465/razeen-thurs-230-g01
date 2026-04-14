@@ -1,9 +1,11 @@
 #nav {
     text-align: center;
     background-image: linear-gradient(to left, var(--accent-color) 85%, transparent 100%);
-    padding: 0.5em 1.4em 0.5em 5em;
+    padding: 0 1em 0 5em;
     position: absolute;
+    height: 3em;
     right: 0;
+    font-family: 'Handlee', cursive;
 }
 
 #nav ul {
@@ -13,45 +15,23 @@
     list-style-type: none;
 }
 
-#nav ul li {
-    text-align: center;
-}
-
-#nav a {
-    padding: 14px 16px;
-    color: black;
-    cursor: pointer;
-    text-decoration: none;
-}
-
 .nav_active {
-    border-right: 1px solid black;
     border-left: 1px solid black;
+    border-right: 1px solid black;
+    height: 2em;
+    top: -0.5em;
+    padding: 0 0 0 0;
     background-color: var(--background-color);
 }
 
 #nav ul li {
+    text-align: center;
+    padding: 1em;
+    top: -0.5em;
+    align-content: center;
     position: relative;
     display: inline-block;
     color: #0087ca;
-}
-
-#nav li::after {
-    content: '';
-    position: absolute;
-    width: 80%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    background-color: black;
-    left: 10%;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-}
-
-#nav li:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
 }
 
 @view-transition {
@@ -129,13 +109,13 @@ header {
     padding-bottom: 1em;
 }
 
-@media (max-width: 1230px) {
+@media (max-width: 1340px) {
     header {
         justify-content: flex-start;
     }
 }
 
-header div {
+.logo {
     justify-content: center;
     display: flex;
     align-items: center;
@@ -144,6 +124,16 @@ header div {
 header img {
     width: 7em;
     height: auto;
+}
+
+header p {
+    margin-top: 0;
+    font-family: cursive;
+}
+
+header h1 {
+    margin: 1em 0 0 0;
+    padding: 0;
 }
 
 body {
@@ -155,13 +145,33 @@ body {
 }
 
 a {
-  color: black;
-  text-align: center;
-  text-decoration: none;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
 }
 
-a:hover:not(#nav a) {
-  background-color: gray;
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
 }
 
 
