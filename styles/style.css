@@ -115,6 +115,22 @@ header {
     }
 }
 
+@media (max-width: 850px) {
+    header {
+        flex-direction: column-reverse;
+    }
+    #nav {
+        justify-content: center;
+        right: revert;
+        background-image: linear-gradient(to left, transparent 0%, var(--accent-color) 15%, var(--accent-color) 85%, transparent 100%);
+        padding: 0 5em 0 5em;
+    }
+    
+    .logo {
+        padding-bottom: 4.5em;
+    }
+}
+
 .logo {
     justify-content: center;
     display: flex;
