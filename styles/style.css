@@ -3,6 +3,7 @@
     --secondary-color: lightgray;
     --accent-color: lightgreen;
     --text-color: black;
+    --link-color: #345634;
     --background-color: #f8f8f8;
     --button-color: white;
     --button-background-color: black;
@@ -167,7 +168,8 @@ a {
     position: relative;
     display: inline-block;
     text-decoration: none;
-    color: black;
+    font-weight: bold;
+    color: var(--link-color);
 }
 
 a::after {
@@ -178,7 +180,7 @@ a::after {
     transform: scaleX(0);
     height: 2px;
     bottom: 0;
-    background-color: black;
+    background-color: var(--link-color);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
