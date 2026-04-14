@@ -16,6 +16,8 @@
 }
 
 .nav_active {
+    cursor: default;
+    pointer-events: none;
     border-left: 1px solid black;
     border-right: 1px solid black;
     height: 2em;
