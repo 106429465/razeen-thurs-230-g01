@@ -12,8 +12,9 @@ form {
   margin: 0 auto;
 }
 
+
 fieldset {
-  border: none;
+  border-color: lime;
   padding: 0;
 }
 
