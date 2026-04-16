@@ -67,6 +67,16 @@ label.darkmode-label:active:after {
     --link-color: #1a2d1a;
     --background-color: #333333;
     --search-color: #1a2d1a;
+    --primary-color: lime;
+    --secondary-color: lightgray;
+    --accent-color: lightgreen;
+    --text-color: black;
+    --link-color: #345634;
+    --background-color: #f8f8f8;
+    --button-color: white;
+    --button-background-color: black;
+    --button-hover-background-color: #333333;
+    --search-color: #d5efd5;
   }
 }
 
@@ -78,7 +88,9 @@ label.darkmode-label:active:after {
   position: absolute;
   height: 3em;
   right: 0;
-  font-family: 'Handlee', cursive;
+  font-family: cursive;
+  font-weight: 500;
+  font-style: normal;
 }
 
 #nav ul {
