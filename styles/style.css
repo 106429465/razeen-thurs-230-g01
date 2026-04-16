@@ -306,6 +306,10 @@ footer {
   justify-content: space-between;
 }
 
+footer a {
+  z-index: 1;
+}
+
 .expand {
     -webkit-transition-property: all;
     -webkit-transition-duration: 0.3s;

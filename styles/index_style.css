@@ -78,7 +78,6 @@ img {
     }
 }
     
-
 table {
     margin: 0 auto;
     justify-content: center;
@@ -89,8 +88,4 @@ table {
 
 table td {
     padding: 2em;
-}
-
-footer a {
-    z-index: 1;
 }
