@@ -1,3 +1,5 @@
+@font-face { font-family: imperitum; src: url('fonts/Imperitum-Regular.ttf'); }
+
 :root {
   --bg: white;
   --text: black;
@@ -119,9 +121,7 @@ label.darkmode-label:active:after {
   position: absolute;
   height: 3em;
   right: 0;
-  font-family: cursive;
-  font-weight: 500;
-  font-style: normal;
+  font-family: imperitum, cursive;
 }
 
 #nav ul {
@@ -313,3 +313,19 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+
+footer a {
+  z-index: 1;
+}
+
+.expand {
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+}
+
+.expand:hover {
+    transform: scale(1.5);
+    z-index: 4;
+}
+
