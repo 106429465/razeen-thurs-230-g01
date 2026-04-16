@@ -8,9 +8,9 @@ table, caption, tr, td {
     margin-right:auto;
 }
 
-@keyframes QuoteHover_in {
+@keyframes quote_hover_in {
     from {
-        background-color: #FFF;
+        background-color: var(--background-color);
     }
 
     to {
@@ -18,13 +18,13 @@ table, caption, tr, td {
      }
 }
 
-@keyframes QuoteHover_out {
+@keyframes quote_hover_out {
     from {
         background-color: #9be2cd;
     }
 
     to {
-        background-color: #FFF;
+        background-color: var(--background-color);
      }
 }
 
@@ -33,12 +33,12 @@ table, caption, tr, td {
     border-collapse: collapse;
     padding:1em;
     text-align: center;
-    animation-name: QuoteHover_out;
+    animation-name: quote_hover_out;
     animation-duration:0.5s;
     animation-fill-mode: forwards;
 }
 .quote_entry:hover {
-    animation-name: QuoteHover_in;
+    animation-name: quote_hover_in;
     animation-duration:0.5s
 }
 
