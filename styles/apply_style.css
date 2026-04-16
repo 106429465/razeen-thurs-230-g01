@@ -12,8 +12,39 @@ form {
   margin: 0 auto;
 }
 
+input#darkmode-toggle {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: none;
+}
+
+label.darkmode-label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 40px;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4), inset 0px -1px 3px rgba(255, 255, 255, 0.4);
+  background-color: var(--toggle-bg);
+}
+
+label.darkmode-label:after {
+  position: absolute;
+  content: "";
+  left: var(--label-left);
+  transform: var(--transformantion);
+  background: linear-gradient(180deg, var(--gradient-bg1), var(--gradient-bg2));
+  width: 36px;
+  height: 36px;
+  top: 2px;
+  border-radius: 36px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 fieldset {
-  border: none;
+  border-color: lime;
   padding: 0;
 }
 

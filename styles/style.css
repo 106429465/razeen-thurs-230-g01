@@ -1,4 +1,10 @@
 :root {
+  --bg: white;
+  --text: black;
+  --toggle-bg: #ebebeb;
+  --gradient-bg1: #ffcc89;
+  --gradient-bg2: #d8860b;
+  --label-left: 2px;
   --primary-color: lime;
   --secondary-color: lightgray;
   --accent-color: lightgreen;
@@ -13,6 +19,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --bg: black;
+    --text: white;
+    --toggle-bg: #242424;
+    --gradient-bg1: #777;
+    --gradient-bg2: #3a3a3a;
+    --label-left: 98px;
+    --transformantion: translateX(-100%);
     --primary-color: #00b300;
     --secondary-color: #a6a6a6;
     --accent-color: #99e699;
@@ -24,10 +37,26 @@
     --background-color: #333333;
     --search-color: #1a2d1a;
   }
+}
+
+
+label.darkmode-label,
+label.darkmode-label:after {
+  transition: 0.3s
+}
+
+label.darkmode-label:active:after {
+  width: 52px;
 }
 
 @media (prefers-color-scheme: dark) {
-  #darkmode-toggle:checked~ :root {
+  #darkmode-toggle:checked~* {
+    --bg: white;
+    --text: black;
+    --toggle-bg: #ebebeb;
+    --gradient-bg1: #ffcc89;
+    --gradient-bg2: #d8860b;
+    --label-left: 37px;
     --primary-color: #00b300;
     --secondary-color: #a6a6a6;
     --accent-color: #99e699;
@@ -41,18 +70,6 @@
   }
 }
 
-#darkmode-toggle:unchecked~ :root {
-  --primary-color: lime;
-  --secondary-color: lightgray;
-  --accent-color: lightgreen;
-  --text-color: black;
-  --link-color: #345634;
-  --background-color: #f8f8f8;
-  --button-color: white;
-  --button-background-color: black;
-  --button-hover-background-color: #333333;
-  --search-color: #d5efd5;
-}
 
 #nav {
   text-align: center;
