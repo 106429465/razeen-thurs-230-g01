@@ -106,6 +106,7 @@
   --button-background-color: black;
   --button-hover-background-color: #333333;
   --search-color: #d5efd5;
+  --table-color: black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -127,6 +128,7 @@
     --link-color: #0ac2e3;
     --background-color: #333333;
     --search-color: #31688a;
+    --table-color: white;
   }
 }
 
