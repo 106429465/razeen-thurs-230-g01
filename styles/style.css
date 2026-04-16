@@ -41,6 +41,19 @@
   }
 }
 
+#darkmode-toggle:unchecked~ :root {
+  --primary-color: lime;
+  --secondary-color: lightgray;
+  --accent-color: lightgreen;
+  --text-color: black;
+  --link-color: #345634;
+  --background-color: #f8f8f8;
+  --button-color: white;
+  --button-background-color: black;
+  --button-hover-background-color: #333333;
+  --search-color: #d5efd5;
+}
+
 #nav {
   text-align: center;
   background-image: linear-gradient(to left, var(--accent-color) 85%, transparent 100%);
