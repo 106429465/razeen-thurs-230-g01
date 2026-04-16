@@ -109,6 +109,26 @@
   --table-color: black;
 }
 
+:root {
+  --bg: white;
+  --text: black;
+  --toggle-bg: #ebebeb;
+  --gradient-bg1: #ffcc89;
+  --gradient-bg2: #d8860b;
+  --label-left: 2px;
+  --primary-color: lime;
+  --secondary-color: lightgray;
+  --accent-color: lightgreen;
+  --text-color: black;
+  --link-color: #03ec03;
+  --background-color: #f8f8f8;
+  --button-color: white;
+  --button-background-color: black;
+  --button-hover-background-color: #333333;
+  --search-color: #d5efd5;
+  --table-color: black;
+}
+
 @media (prefers-color-scheme: dark) {
   :root:has(#dark:target) {
     --bg: black;
