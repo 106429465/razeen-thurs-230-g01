@@ -8,12 +8,17 @@
     <link href="../styles/style.css" rel="stylesheet">
   </head>
   <body>
-<input id="darkmode-toggle" type="checkbox" name="darkmode-toggle" aria-label="Toggle dark mode">
+<div class="toggle-wrapper">
+  <!-- When URL fragment is NOT #dark, this link is shown -->
+  <a href="#dark" class="darkmode-link dark-off"></a>
+  <!-- When URL fragment IS #dark, this link is shown -->
+  <a href="#light" class="darkmode-link dark-on"></a>
+</div>
+
+<!-- Add these two hidden IDs to the top of your <body> -->
+<div id="dark"></div>
+<div id="light"></div>
     <div class="background">
-        <label for="darkmode-toggle" class="darkmode-label">
-            <span class="sun"></span>
-            <span class="moon"></span>
-        </label>
 <a href="#main-content" class="skip-link">Skip to main content</a>
      <header>
         <div class="logo">
@@ -23,14 +28,22 @@
                 <p><em>Health That Truly Performs</em></p>
             </div>
         </div>
-        <nav id="nav">
-            <ul>
-                <li><a href="../">Home</a></li>
-                <li><a href="../job_description">Job Description</a></li>
-                <li><a href="../apply">Apply</a></li>
-                <li class="nav_active"><a href="#">About</a></li>
-            </ul>
-        </nav>
+            <nav id="nav-light" class='nav-style'>
+                <ul>
+                    <li class="nav_active"><a href="/#light">Home</a></li>
+                    <li><a href="job_description#light">Job Description</a></li>
+                    <li><a href="apply#light">Apply</a></li>
+                    <li><a href="about#light">About</a></li>
+                </ul>
+            </nav>
+            <nav id="nav-dark" class='nav-style'>
+                <ul>
+                    <li><a href="/#dark">Home</a></li>
+                    <li><a href="job_description#dark">Job Description</a></li>
+                    <li><a href="apply#dark">Apply</a></li>
+                    <li class="nav_active"><a href="about#dark">About</a></li>
+                </ul>
+            </nav>
     </header>
     <hr>
     <main id="main-content">
