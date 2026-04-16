@@ -3,9 +3,13 @@
 table, caption, tr, td {
     border: 2px solid var(--table-color);
     border-collapse: collapse;
-    padding: 2px;
+    padding: 6px;
+    text-align:center;
     margin-left:auto;
     margin-right:auto;
+}
+dt, dd {
+    text-align: left;
 }
 
 @keyframes quote_hover_in {
@@ -14,13 +18,13 @@ table, caption, tr, td {
     }
 
     to {
-        background-color: #9be2cd;
+        background-color: var(--accent-color);
      }
 }
 
 @keyframes quote_hover_out {
     from {
-        background-color: #9be2cd;
+        background-color: var(--accent-color);
     }
 
     to {
@@ -43,7 +47,7 @@ table, caption, tr, td {
 }
 
 
-.group_photo {
+#group_photo {
     width: 100%;
 }
 
@@ -57,7 +61,7 @@ table, caption, tr, td {
     width:48%;
 }
 
-h1, h2, h3 {
+h1, h2 {
     text-align:center;
     margin: 0;
 }
