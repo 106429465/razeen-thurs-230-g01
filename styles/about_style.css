@@ -1,0 +1,71 @@
+@import "style.css";
+
+table, caption, tr, td {
+    border: 2px solid var(--table-color);
+    border-collapse: collapse;
+    padding: 2px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@keyframes QuoteHover_in {
+    from {
+        background-color: #FFF;
+    }
+
+    to {
+        background-color: #9be2cd;
+     }
+}
+
+@keyframes QuoteHover_out {
+    from {
+        background-color: #9be2cd;
+    }
+
+    to {
+        background-color: #FFF;
+     }
+}
+
+.quote_entry {
+    border: 2px solid var(--table-color);
+    border-collapse: collapse;
+    padding:1em;
+    text-align: center;
+    animation-name: QuoteHover_out;
+    animation-duration:0.5s;
+    animation-fill-mode: forwards;
+}
+.quote_entry:hover {
+    animation-name: QuoteHover_in;
+    animation-duration:0.5s
+}
+
+
+.group_photo {
+    width: 100%;
+}
+
+.content_left {
+    float: left;
+    width:48%;
+}
+
+.content_right {
+    float: right;
+    width:48%;
+}
+
+h1, h2, h3 {
+    text-align:center;
+    margin: 0;
+}
+
+section {
+    padding: 2%;
+}
+
+figure {
+    text-align: center;
+}
