@@ -452,6 +452,28 @@ footer a {
   z-index: 4;
 }
 
+@media (max-width: 1024px) {
+  .toggle-wrapper {
+    position: absolute !important;
+    top: 10px !important;
+    left: 50% !important;
+  }
+
+  header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: left !important;
+    padding-top: 5em !important;
+  }
+
+  .logo {
+    flex-direction: row !important;
+    text-align: left !important;
+    width: 50% !important;
+  }
+
+}
+
 @media (max-width: 850px) {
 
   header {
@@ -471,7 +493,6 @@ footer a {
     position: absolute !important;
     top: 10px !important;
     left: 50% !important;
-    transform: translateX(-50%);
   }
 
   .nav-style {
