@@ -11,7 +11,7 @@
   --secondary-color: lightgray;
   --accent-color: lightgreen;
   --text-color: black;
-  --link-color: #345634;
+  --link-color: #03ec03;
   --background-color: #f8f8f8;
   --button-color: white;
   --button-background-color: black;
@@ -30,14 +30,14 @@
     --transformantion: translateX(-100%);
     --primary-color: #00b300;
     --secondary-color: #a6a6a6;
-    --accent-color: #99e699;
+    --accent-color: #398AE6;
     --button-color: #cccccc;
     --button-background-color: #333333;
     --button-hover-background-color: #cccccc;
     --text-color: #ffffff;
-    --link-color: #1a2d1a;
+    --link-color: #0ac2e3;
     --background-color: #333333;
-    --search-color: #1a2d1a;
+    --search-color: #31688a;
   }
 }
 
@@ -134,8 +134,8 @@ label.darkmode-label:active:after {
 .nav_active {
   cursor: default;
   pointer-events: none;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid var(--text);
+  border-right: 1px solid var(--text);
   height: 2em;
   top: -0.5em;
   padding: 0 0 0 0;
@@ -149,7 +149,6 @@ label.darkmode-label:active:after {
   align-content: center;
   position: relative;
   display: inline-block;
-  color: #0087ca;
 }
 
 @view-transition {
@@ -243,6 +242,7 @@ header {
   justify-content: center;
   display: flex;
   align-items: center;
+  color: #398AE6;
 }
 
 header img {
@@ -279,7 +279,7 @@ a {
   position: relative;
   display: inline-block;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text);
 }
 
 a:not(#nav *) {

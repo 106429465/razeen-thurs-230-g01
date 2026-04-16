@@ -16,7 +16,6 @@ form {
     box-sizing: border-box;
     border-radius: 25px;
     border: 4px solid var(--search-color);
-    
 }
 
 input {
@@ -33,6 +32,11 @@ input {
     border-radius: 20px;
     padding: 0 20px;
     background-color: var(--search-color);
+    color: var(--text);
+}
+
+input::placeholder {
+    color: var(--text)
 }
 
 label {
@@ -64,7 +68,7 @@ form:hover input {
 }
 
 form:hover .fa {
-    background: #051b33;
+    background: var(--text);
     color: var(--search-color);
 }
 
