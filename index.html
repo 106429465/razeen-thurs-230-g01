@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-au">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,17 +22,23 @@
     </head>
     <body>
 
-    <div class="toggle-bg">
-<div class="toggle-wrapper">
-  <a href="#dark" class="darkmode-link dark-off"></a>
-  <a href="#light" class="darkmode-link dark-on"></a>
+<a href="#main-dark" class="skip-link link-dark" aria-label="Skip to main content">Skip to main content</a>
+<a href="#main-light" class="skip-link link-light" aria-label="Skip to main content">Skip to main content</a>
+
+<div class="toggle-bg">
+    <div class="toggle-wrapper">
+        <input type="checkbox" id="dark-mode-toggle" class="theme-check" style="display:none;">
+        
+        <label for="dark-mode-toggle" class="darkmode-link"></label>
+
+        <a href="#dark" class="persistence-link link-light" aria-hidden="true" aria-label="Switch to dark mode toggle"></a>
+        <a href="#light" class="persistence-link link-dark" aria-hidden="true" aria-label="Switch to light mode toggle"></a>
+    </div>
 </div>
-      </div>
 
 <div id="dark"></div>
 <div id="light"></div>
     <div class="background">
-        <a href="#main-content" class="skip-link">Skip to main content</a>
         <header>
             <div class="logo">
                 <img src="images/logo_transparent.png" alt="Company Logo">
@@ -59,10 +65,24 @@
             </nav>
         </header>
         <hr>
-        <marquee behavior="scroll" direction="left" scrollamount="5" class="marquee">
-            <p>We are currently hiring! Check out our <a href="job_description#light" class="link-light">Job Description page</a><a href="job_description#dark" class="link-dark">Job Description page</a> for more details. We would love to have you on our team. If you would like to apply, please visit the <a href="apply#light" class="link-light">Apply</a><a href="apply#dark" class="link-dark">Apply</a> page.</p>
-        </marquee>
+<div class="ticker-wrapper">
+    <input type="checkbox" id="pause-toggle" class="pause-check">
+    <label for="pause-toggle" class="pause-label" aria-label="pause/resume scrolling-content"></label>
+
+    <div class="scrolling-content">
+      <p>We are currently hiring! Check out our 
+        <a href="job_description#light" class="link-light">Job Description page</a>
+        <a href="job_description#dark" class="link-dark">Job Description page</a> 
+        for more details. We would love to have you on our team. 
+        If you would like to apply, please visit the 
+        <a href="apply#light" class="link-light">Apply</a>
+        <a href="apply#dark" class="link-dark">Apply</a> page.
+      </p>
+    </div>
+</div>
         <main id="main-content">
+        <div id="main-dark"></div>
+        <div id="main-light"></div>
             <form action="">
                 <label>
                     <input type = "search" placeholder = "Search here...">

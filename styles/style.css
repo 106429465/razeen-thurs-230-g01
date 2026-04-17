@@ -7,30 +7,114 @@
   box-sizing: border-box;
 }
 
+
 body {
   transition: background-color 0.5s, color 0.5s;
 }
 
+/* 1. Reset the label so it doesn't block other page links */
+.darkmode-link {
+  display: block;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1;
+  /* Lower than the links */
+}
+
+/* 2. Make the specific toggle links fill ONLY the toggle area */
+.persistence-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: 10;
+  /* High z-index so they get the click */
+  text-decoration: none;
+}
+
+
+/* 3. Stop the links from showing up as blue/underlined text */
+.persistence-link::after {
+  content: none !important;
+}
+
+:root:has(#dark:target),
+:root:has(#main-dark:target),
+:root:has(#dark-mode-toggle:checked) {
+  --background-color: #333333;
+  --text-color: #ffffff;
+  --toggle-bg: #242424;
+  --label-left: 62px;
+}
+
+.darkmode-link a {
+  text-decoration: none;
+  color: transparent;
+  user-select: none;
+}
+
+:root:has(#dark:target) .darkmode-link .link-light:not(.skip-link),
+:root:has(#main-dark:target) .darkmode-link .link-light:not(.skip-link) {
+  display: none !important;
+}
+
+:root:has(#dark:target) .link-light.skip-link,
+:root:has(#main-dark:target) .link-light.skip-link {
+  visibility: collapse !important;
+}
+
+:root:has(#light:target) .darkmode-link .link-dark:not(.skip-link),
+:root:has(#main-light:target) .darkmode-link .link-dark:not(.skip-link) {
+  display: none !important;
+}
+
+:root:has(#light:target) .link-dark.skip-link,
+:root:has(#main-light:target) .link-dark.skip-link {
+  visibility: collapse !important;
+}
+
+/* THE VISUAL TOGGLE (The one you see) */
 .toggle-bg {
   position: absolute;
   width: 100px;
   height: 40px;
   border-radius: 40px;
   background-color: var(--toggle-bg);
+  /* This changes with the theme */
   transition: 0.3s;
   z-index: 1;
+  /* Sits behind the click layer */
 }
 
+/* THE CIRCLE (The one you see) */
 .toggle-bg::after {
   content: "";
   position: absolute;
   top: 2px;
   left: var(--label-left);
+  /* Moves with the theme */
   width: 36px;
   height: 36px;
   border-radius: 50%;
   background: linear-gradient(180deg, var(--gradient-bg1), var(--gradient-bg2));
   transition: all 0.3s ease-in-out;
+}
+
+.darkmode-link {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  box-shadow: none;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.darkmode-link::after {
+  content: none !important;
 }
 
 .dark-off,
@@ -39,50 +123,39 @@ body {
   opacity: 0;
 }
 
-.darkmode-link {
-  display: block;
-  position: relative;
-  width: 100px;
-  height: 40px;
-  border-radius: 40px;
-  background-color: #ebebeb;
-  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease-in-out;
-}
-
-.darkmode-link::after {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #ffcc89, #d8860b);
-  transition: all 0.3s ease-in-out;
-}
-
-
 .dark-on {
   display: none;
 }
 
+:root:has(#dark:target) .skip-link,
+:root:has(#main-dark:target) .skip-link,
+:root:has(#dark-mode-toggle:checked) .skip-link {
+  background: var(--background-color);
+  color: var(--link-color);
+  border: 1px solid #ffffff;
+}
+
+:root:has(#dark-mode-toggle:checked) .dark-off,
+:root:has(#main-dark:target) .dark-off,
 :root:has(#dark:target) .dark-off {
   display: none;
 }
 
+:root:has(#dark-mode-toggle:checked) .dark-on,
+:root:has(#main-dark:target) .dark-on,
 :root:has(#dark:target) .dark-on {
   display: block;
   background-color: #242424;
 }
 
+:root:has(#dark-mode-toggle:checked) .dark-on::after,
+:root:has(#main-dark:target) .dark-on::after,
 :root:has(#dark:target) .dark-on::after {
   left: 62px;
   background: linear-gradient(180deg, #777, #3a3a3a);
 }
 
-.link-dark {
+.link-dark:not(.skip-link) {
   display: none !important;
 }
 
@@ -98,31 +171,57 @@ body {
   display: none;
 }
 
+:root:has(#dark-mode-toggle:checked) #nav-light,
+:root:has(#main-dark:target) #nav-light,
 :root:has(#dark:target) #nav-light {
   display: none;
 }
 
+:root:has(#dark-mode-toggle:checked) #nav-dark,
+:root:has(#main-dark:target) #nav-dark,
 :root:has(#dark:target) #nav-dark {
   display: block;
 }
 
 
-:root:has(#dark:target) .link-light {
+:root:has(#dark-mode-toggle:checked) .link-light:not(.skip-link),
+:root:has(#main-dark:target) .link-light:not(.skip-link),
+:root:has(#dark:target) .link-light:not(.skip-link) {
   display: none !important;
 }
 
-:root:has(#dark:target) .link-dark {
+:root:has(#dark-mode-toggle:checked) .link-light.skip-link,
+:root:has(#main-dark:target) .link-light.skip-link,
+:root:has(#dark:target) .link-light.skip-link {
+  visibility: collapse !important;
+}
+
+:root:has(#dark-mode-toggle:checked) .link-dark:not(.skip-link),
+:root:has(#main-dark:target) .link-dark:not(.skip-link),
+:root:has(#dark:target) .link-dark:not(.skip-link) {
   display: inline-block !important;
 }
 
-:root:has(#light:target) .link-dark {
+:root:has(#dark-mode-toggle:unchecked) .link-dark:not(.skip-link),
+:root:has(#main-light:target) .link-dark:not(.skip-link),
+:root:has(#light:target) .link-dark:not(.skip-link) {
   display: none;
 }
 
-:root:has(#light:target) .link-light {
+:root:has(#dark-mode-toggle:unchecked) .link-dark.skip-link,
+:root:has(#main-light:target) .link-dark.skip-link,
+:root:has(#light:target) .link-dark.skip-link {
+  visibility: collapse;
+}
+
+:root:has(#dark-mode-toggle:unchecked) .link-light.skip-link,
+:root:has(#main-light:target) .link-light.skip-link,
+:root:has(#light:target) .link-light.skip-link {
   display: inline-block;
 }
 
+:root:has(#main-light:target),
+:root:has(#dark-mode-toggle:unchecked),
 :root:has(#light:target) {
   --bg: white;
   --text: black;
@@ -164,6 +263,9 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
+
+  :root:has(#main-dark:target),
+  :root:has(#dark-mode-toggle:checked),
   :root:has(#dark:target) {
     --bg: black;
     --text: white;
@@ -409,7 +511,7 @@ a:not(.nav-style *) {
   color: var(--link-color);
 }
 
-a::after:not(.darkmode-link) {
+a:not(.persistence-link):not(.skip-link):not(.darkmode-link)::after {
   content: '';
   position: absolute;
   left: 0;
@@ -422,6 +524,10 @@ a::after:not(.darkmode-link) {
   transition: transform 0.25s ease-out;
 }
 
+a:not(.persistence-link):not(.skip-link):not(.darkmode-link):hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 a:not(.nav-style *)::after {
   background-color: var(--link-color);
@@ -472,6 +578,86 @@ footer a {
     width: 50% !important;
   }
 
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.scrolling-content {
+  display: inline-block;
+  overflow-x: hidden;
+  white-space: nowrap;
+  animation: scrollLeft 15s linear infinite;
+}
+
+
+
+.ticker-wrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.scrolling-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollLeft 30s linear infinite;
+}
+
+.pause-check:checked~.scrolling-content {
+  animation-play-state: paused;
+}
+
+.pause-label {
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.pause-check:checked~.pause-label::after {
+  content: "▶︎";
+}
+
+.pause-check:not(:checked)~.pause-label::after {
+  content: "⏸";
+}
+
+.pause-check {
+  display: none;
+}
+
+.pause-label {
+  font-size: 20;
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  color: red;
+}
+
+.scrolling-content {
+  position: relative;
+  z-index: 1;
+  /* Lower number = behind the button */
 }
 
 @media (max-width: 850px) {

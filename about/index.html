@@ -8,16 +8,22 @@
     <link href="../styles/about_style.css" rel="stylesheet">
   </head>
   <body>
-    <div class="toggle-bg">
-<div class="toggle-wrapper">
-  <a href="#dark" class="darkmode-link dark-off"></a>
-  <a href="#light" class="darkmode-link dark-on"></a>
+<a href="#main-dark" class="skip-link link-dark" aria-label="Skip to main content">Skip to main content</a>
+<a href="#main-light" class="skip-link link-light" aria-label="Skip to main content">Skip to main content</a>
+
+<div class="toggle-bg">
+    <div class="toggle-wrapper">
+        <input type="checkbox" id="dark-mode-toggle" class="theme-check" style="display:none;">
+        
+        <label for="dark-mode-toggle" class="darkmode-link"></label>
+
+        <a href="#dark" class="persistence-link link-light" aria-hidden="true" aria-label="Switch to dark mode toggle"></a>
+        <a href="#light" class="persistence-link link-dark" aria-hidden="true" aria-label="Switch to light mode toggle"></a>
+    </div>
 </div>
-      </div>
 <div id="dark"></div>
 <div id="light"></div>
     <div class="background">
-<a href="#main-content" class="skip-link">Skip to main content</a>
      <header>
         <div class="logo">
             <img src="../images/logo_transparent.png" alt="Company Logo">
@@ -45,6 +51,9 @@
     </header>
     <hr>
     <main id="main-content">
+
+        <div id="main-dark"></div>
+        <div id="main-light"></div>
           <h1>About the HTMW Group</h1>
           <div class="content_left">
           <section id="intro">

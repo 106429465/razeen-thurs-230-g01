@@ -13,24 +13,24 @@
 </head>
 
 <body>
-<div class="toggle-wrapper">
-  <!-- When URL fragment is NOT #dark, this link is shown -->
-  <a href="#dark" class="darkmode-link dark-off"></a>
-  <!-- When URL fragment IS #dark, this link is shown -->
-  <a href="#light" class="darkmode-link dark-on"></a>
+<a href="#main-dark" class="skip-link link-dark" aria-label="Skip to main content">Skip to main content</a>
+<a href="#main-light" class="skip-link link-light" aria-label="Skip to main content">Skip to main content</a>
+
+<div class="toggle-bg">
+    <div class="toggle-wrapper">
+        <input type="checkbox" id="dark-mode-toggle" class="theme-check" style="display:none;">
+        
+        <label for="dark-mode-toggle" class="darkmode-link"></label>
+
+        <a href="#dark" class="persistence-link link-light" aria-hidden="true" aria-label="Switch to dark mode toggle"></a>
+        <a href="#light" class="persistence-link link-dark" aria-hidden="true" aria-label="Switch to light mode toggle"></a>
+    </div>
 </div>
 
-    <div class="toggle-bg">
-<div class="toggle-wrapper">
-  <a href="#dark" class="darkmode-link dark-off"></a>
-  <a href="#light" class="darkmode-link dark-on"></a>
-</div>
-      </div>
 <div id="dark"></div>
 <div id="light"></div>
     <div class="background">
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header>
         <div class="logo">
@@ -61,6 +61,11 @@
 
     <hr>
 
+    <main id="main-content">
+
+        <div id="main-dark"></div>
+        <div id="main-light"></div>
+
     <section>
         <h2>Want to join our community?</h2>
         <p>
@@ -74,7 +79,6 @@
         </p>
     </section>
 
-    <main id="main-content">
         <h3>Here are our available jobs!</h3>
 
         <section class="job-listing">
