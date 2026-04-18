@@ -5,8 +5,7 @@
 
 /* The following 3 :root section actually let the css themse work*/
 :root:has(#main-light:target),
-:root:has(#light:target),
-:root:not(:has(#dark-mode-toggle:checked)):not(:has(#main-dark:target)):not(:has(#dark:target)) {
+:root:has(#light:target) {
   --bg: white;
   --text: black;
   --toggle-bg: #ebebeb;
@@ -28,7 +27,6 @@
 
 
 :root:not(:has(#light:target)):not(:has(#main-light:target)):has(#main-dark:target),
-:root:not(:has(#light:target)):not(:has(#main-light:target)):has(#dark-mode-toggle:checked),
 :root:not(:has(#light:target)):not(:has(#main-light:target)):has(#dark:target) {
   --bg: black;
   --text: white;
@@ -50,29 +48,24 @@
   --table-color: white;
 }
 
-:root:has(#dark-mode-toggle:checked) .link-dark.skip-link,
 :root:has(#main-dark:target) .link-dark.skip-link,
 :root:has(#dark:target) .link-dark.skip-link,
-:root:has(#dark-mode-toggle:not(:checked)) .link-light.skip-link,
 :root:has(#main-light:target) .link-light.skip-link,
 :root:has(#light:target) .link-light.skip-link {
   display: inline-block;
 }
 
-:root:not(:has(#dark:target)):not(:has(#main-dark:target)):not(:has(#dark-mode-toggle:checked)) .link-light.persistence-link {
+:root:not(:has(#dark:target)):not(:has(#main-dark:target)) .link-light.persistence-link {
   display: none !important;
 }
 
 :root:has(#dark:target) .link-dark.persistence-link,
-:root:has(#main-dark:target) .link-dark.persistence-link,
-:root:has(#dark-mode-toggle:checked) .link-dark.persistence-link {
+:root:has(#main-dark:target) .link-dark.persistence-link {
   display: none !important;
 }
 
-:root:has(#dark-mode-toggle:not(:checked)) .link-dark:not(.skip-link):not(.persistence-link),
 :root:has(#light:target) .darkmode-link .link-dark:not(.skip-link):not(.persistence-link),
 :root:has(#main-light:target) .darkmode-link .link-dark:not(.skip-link):not(.persistence-link),
-:root:has(#dark-mode-toggle:checked) .link-light:not(.skip-link):not(.persistence-link),
 :root:has(#dark:target) .link-light:not(.skip-link):not(.persistence-link),
 :root:has(#main-dark:target) .link-light:not(.skip-link):not(.persistence-link) {
   display: none !important;
@@ -80,10 +73,8 @@
 
 
 
-:root:has(#dark-mode-toggle:checked) .link-light.skip-link,
 :root:has(#dark:target) .link-light.skip-link,
 :root:has(#main-dark:target) .link-light.skip-link,
-:root:has(#dark-mode-toggle:not(:checked)) .link-dark.skip-link,
 :root:has(#light:target) .link-dark.skip-link,
 :root:has(#main-light:target) .link-dark.skip-link {
   visibility: collapse !important;
@@ -91,21 +82,18 @@
 
 
 :root:has(#dark:target) .skip-link,
-:root:has(#main-dark:target) .skip-link,
-:root:has(#dark-mode-toggle:checked) .skip-link {
+:root:has(#main-dark:target) .skip-link {
   background: var(--background-color);
   color: var(--link-color);
   border: 1px solid #ffffff;
 }
 
 
-:root:has(#dark-mode-toggle:checked) #nav-light,
 :root:has(#main-dark:target) #nav-light,
 :root:has(#dark:target) #nav-light {
   display: none;
 }
 
-:root:has(#dark-mode-toggle:checked) #nav-dark,
 :root:has(#main-dark:target) #nav-dark,
 :root:has(#dark:target) #nav-dark {
   display: block;
@@ -120,7 +108,7 @@
 }
 
 /* Prevent the theme logic from ever touching regular page links */
-a:not(.persistence-link) {
+a:not(.persistence-link):not(.skip-link):not(.darkmode-link) {
   display: inline-block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -130,16 +118,6 @@ body {
   transition: background-color 0.5s, color 0.5s;
 }
 
-/* 1. Reset the label so it doesn't block other page links */
-.darkmode-link {
-  display: block;
-  width: 100px;
-  height: 40px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-/* 2. Make the specific toggle links fill ONLY the toggle area */
 .persistence-link {
   position: absolute;
   top: 0;
@@ -240,39 +218,6 @@ body {
 }
 
 
-/* @media (prefers-color-scheme: dark) { */
-/*   #darkmode-toggle:checked~* { */
-/*     --bg: white; */
-/*     --text: black; */
-/*     --toggle-bg: #ebebeb; */
-/*     --gradient-bg1: #ffcc89; */
-/*     --gradient-bg2: #d8860b; */
-/*     --label-left: 37px; */
-/*     --primary-color: #00b300; */
-/*     --secondary-color: #a6a6a6; */
-/*     --accent-color: #99e699; */
-/*     --button-color: #cccccc; */
-/*     --button-background-color: #333333; */
-/*     --button-hover-background-color: #cccccc; */
-/*     --text-color: #ffffff; */
-/*     --link-color: #1a2d1a; */
-/*     --background-color: #333333; */
-/*     --search-color: #1a2d1a; */
-/*     --primary-color: lime; */
-/*     --secondary-color: lightgray; */
-/*     --accent-color: lightgreen; */
-/*     --text-color: black; */
-/*     --link-color: #345634; */
-/*     --background-color: #f8f8f8; */
-/*     --button-color: white; */
-/*     --button-background-color: black; */
-/*     --button-hover-background-color: #333333; */
-/*     --search-color: #d5efd5; */
-/*     --table-color: black; */
-/*   } */
-/* } */
-
-
 .nav-style {
   text-align: center;
   background-image: linear-gradient(to left, var(--accent-color) 85%, transparent 100%);
@@ -351,6 +296,7 @@ main {
   opacity: 0;
   animation: FadeIn 0.25s ease-in 0.25s both;
 }
+
 
 .skip-link {
   position: absolute;
@@ -492,9 +438,9 @@ footer a {
 }
 
 .expand {
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 .expand:hover {
@@ -672,4 +618,10 @@ footer a {
   }
 
 
+}
+
+.skip-link:focus {
+  top: 0;
+  display: inline-block !important;
+  visibility: visible !important;
 }
