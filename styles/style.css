@@ -4,6 +4,7 @@
 }
 
 /* The following 3 :root section actually let the css themse work*/
+:root,
 :root:has(#main-light:target),
 :root:has(#light:target) {
   --bg: white;
