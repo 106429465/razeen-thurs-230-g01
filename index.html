@@ -29,10 +29,10 @@
     <div class="toggle-wrapper">
         <input type="checkbox" id="dark-mode-toggle" class="theme-check" style="display:none;">
         
-        <label for="dark-mode-toggle" class="darkmode-link"></label>
+        <label for="dark-mode-toggle" class="darkmode-link" aria-label="dark mode toggle"></label>
 
-        <a href="#dark" class="persistence-link link-light" aria-hidden="true" aria-label="Switch to dark mode toggle"></a>
-        <a href="#light" class="persistence-link link-dark" aria-hidden="true" aria-label="Switch to light mode toggle"></a>
+        <a href="#dark" class="persistence-link link-dark"  aria-label="Switch to dark mode toggle"></a>
+        <a href="#light" class="persistence-link link-light"  aria-label="Switch to light mode toggle"></a>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
                 <img src="images/logo_transparent.png" alt="Company Logo">
                 <div class="logo_text">
                     <h1>HealThML</h1>
-                    <p><em>Health That Truly Performs</em></p>
+                    <p style="color:var(--text-color);"><em>Health That Truly Performs</em></p>
                 </div>
             </div>
             <nav id="nav-light" class='nav-style'>
@@ -84,7 +84,7 @@
         <div id="main-dark"></div>
         <div id="main-light"></div>
             <form action="">
-                <label>
+                <label aria-label="Search for content on the website">
                     <input type = "search" placeholder = "Search here...">
                 </label>
                 <i class="fa fa-search"></i>

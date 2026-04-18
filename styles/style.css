@@ -3,10 +3,128 @@
   src: url('fonts/Imperitum-Regular.ttf');
 }
 
+/* The following 3 :root section actually let the css themse work*/
+:root:has(#main-light:target),
+:root:has(#light:target),
+:root:not(:has(#dark-mode-toggle:checked)):not(:has(#main-dark:target)):not(:has(#dark:target)) {
+  --bg: white;
+  --text: black;
+  --toggle-bg: #ebebeb;
+  --gradient-bg1: #ffcc89;
+  --gradient-bg2: #d8860b;
+  --label-left: 2px;
+  --primary-color: lime;
+  --secondary-color: lightgray;
+  --accent-color: lightgreen;
+  --text-color: black;
+  --link-color: #1E5128;
+  --background-color: #f8f8f8;
+  --button-color: white;
+  --button-background-color: black;
+  --button-hover-background-color: #333333;
+  --search-color: #d5efd5;
+  --table-color: black;
+}
+
+
+:root:not(:has(#light:target)):not(:has(#main-light:target)):has(#main-dark:target),
+:root:not(:has(#light:target)):not(:has(#main-light:target)):has(#dark-mode-toggle:checked),
+:root:not(:has(#light:target)):not(:has(#main-light:target)):has(#dark:target) {
+  --bg: black;
+  --text: white;
+  --toggle-bg: #242424;
+  --gradient-bg1: #777;
+  --gradient-bg2: #3a3a3a;
+  --label-left: 62px;
+  --transformation: translateX(-100%);
+  --primary-color: #00b300;
+  --secondary-color: #a6a6a6;
+  --accent-color: #398AE6;
+  --button-color: #cccccc;
+  --button-background-color: #333333;
+  --button-hover-background-color: #cccccc;
+  --text-color: #ffffff;
+  --link-color: #0ac2e3;
+  --background-color: #333333;
+  --search-color: #31688a;
+  --table-color: white;
+}
+
+:root:has(#dark-mode-toggle:checked) .link-dark.skip-link,
+:root:has(#main-dark:target) .link-dark.skip-link,
+:root:has(#dark:target) .link-dark.skip-link,
+:root:has(#dark-mode-toggle:not(:checked)) .link-light.skip-link,
+:root:has(#main-light:target) .link-light.skip-link,
+:root:has(#light:target) .link-light.skip-link {
+  display: inline-block;
+}
+
+:root:not(:has(#dark:target)):not(:has(#main-dark:target)):not(:has(#dark-mode-toggle:checked)) .link-light.persistence-link {
+  display: none !important;
+}
+
+:root:has(#dark:target) .link-dark.persistence-link,
+:root:has(#main-dark:target) .link-dark.persistence-link,
+:root:has(#dark-mode-toggle:checked) .link-dark.persistence-link {
+  display: none !important;
+}
+
+:root:has(#dark-mode-toggle:not(:checked)) .link-dark:not(.skip-link):not(.persistence-link),
+:root:has(#light:target) .darkmode-link .link-dark:not(.skip-link):not(.persistence-link),
+:root:has(#main-light:target) .darkmode-link .link-dark:not(.skip-link):not(.persistence-link),
+:root:has(#dark-mode-toggle:checked) .link-light:not(.skip-link):not(.persistence-link),
+:root:has(#dark:target) .link-light:not(.skip-link):not(.persistence-link),
+:root:has(#main-dark:target) .link-light:not(.skip-link):not(.persistence-link) {
+  display: none !important;
+}
+
+
+
+:root:has(#dark-mode-toggle:checked) .link-light.skip-link,
+:root:has(#dark:target) .link-light.skip-link,
+:root:has(#main-dark:target) .link-light.skip-link,
+:root:has(#dark-mode-toggle:not(:checked)) .link-dark.skip-link,
+:root:has(#light:target) .link-dark.skip-link,
+:root:has(#main-light:target) .link-dark.skip-link {
+  visibility: collapse !important;
+}
+
+
+:root:has(#dark:target) .skip-link,
+:root:has(#main-dark:target) .skip-link,
+:root:has(#dark-mode-toggle:checked) .skip-link {
+  background: var(--background-color);
+  color: var(--link-color);
+  border: 1px solid #ffffff;
+}
+
+
+:root:has(#dark-mode-toggle:checked) #nav-light,
+:root:has(#main-dark:target) #nav-light,
+:root:has(#dark:target) #nav-light {
+  display: none;
+}
+
+:root:has(#dark-mode-toggle:checked) #nav-dark,
+:root:has(#main-dark:target) #nav-dark,
+:root:has(#dark:target) #nav-dark {
+  display: block;
+}
+
+
+
+
+
 *:not(.nav-style *) {
   box-sizing: border-box;
 }
 
+/* Prevent the theme logic from ever touching regular page links */
+a:not(.persistence-link) {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
 
 body {
   transition: background-color 0.5s, color 0.5s;
@@ -19,7 +137,6 @@ body {
   height: 40px;
   cursor: pointer;
   z-index: 1;
-  /* Lower than the links */
 }
 
 /* 2. Make the specific toggle links fill ONLY the toggle area */
@@ -40,40 +157,17 @@ body {
   content: none !important;
 }
 
-:root:has(#dark:target),
-:root:has(#main-dark:target),
-:root:has(#dark-mode-toggle:checked) {
-  --background-color: #333333;
-  --text-color: #ffffff;
-  --toggle-bg: #242424;
-  --label-left: 62px;
-}
 
 .darkmode-link a {
   text-decoration: none;
   color: transparent;
-  user-select: none;
+  user-select: auto;
+  /* Allow the browser to 'see' the link */
+  display: block;
+  width: 100px;
+  height: 40px;
 }
 
-:root:has(#dark:target) .darkmode-link .link-light:not(.skip-link),
-:root:has(#main-dark:target) .darkmode-link .link-light:not(.skip-link) {
-  display: none !important;
-}
-
-:root:has(#dark:target) .link-light.skip-link,
-:root:has(#main-dark:target) .link-light.skip-link {
-  visibility: collapse !important;
-}
-
-:root:has(#light:target) .darkmode-link .link-dark:not(.skip-link),
-:root:has(#main-light:target) .darkmode-link .link-dark:not(.skip-link) {
-  display: none !important;
-}
-
-:root:has(#light:target) .link-dark.skip-link,
-:root:has(#main-light:target) .link-dark.skip-link {
-  visibility: collapse !important;
-}
 
 /* THE VISUAL TOGGLE (The one you see) */
 .toggle-bg {
@@ -127,41 +221,7 @@ body {
   display: none;
 }
 
-:root:has(#dark:target) .skip-link,
-:root:has(#main-dark:target) .skip-link,
-:root:has(#dark-mode-toggle:checked) .skip-link {
-  background: var(--background-color);
-  color: var(--link-color);
-  border: 1px solid #ffffff;
-}
 
-:root:has(#dark-mode-toggle:checked) .dark-off,
-:root:has(#main-dark:target) .dark-off,
-:root:has(#dark:target) .dark-off {
-  display: none;
-}
-
-:root:has(#dark-mode-toggle:checked) .dark-on,
-:root:has(#main-dark:target) .dark-on,
-:root:has(#dark:target) .dark-on {
-  display: block;
-  background-color: #242424;
-}
-
-:root:has(#dark-mode-toggle:checked) .dark-on::after,
-:root:has(#main-dark:target) .dark-on::after,
-:root:has(#dark:target) .dark-on::after {
-  left: 62px;
-  background: linear-gradient(180deg, #777, #3a3a3a);
-}
-
-.link-dark:not(.skip-link) {
-  display: none !important;
-}
-
-.link-light {
-  display: inline-block !important;
-}
 
 #nav-light {
   display: inline-block;
@@ -171,122 +231,6 @@ body {
   display: none;
 }
 
-:root:has(#dark-mode-toggle:checked) #nav-light,
-:root:has(#main-dark:target) #nav-light,
-:root:has(#dark:target) #nav-light {
-  display: none;
-}
-
-:root:has(#dark-mode-toggle:checked) #nav-dark,
-:root:has(#main-dark:target) #nav-dark,
-:root:has(#dark:target) #nav-dark {
-  display: block;
-}
-
-
-:root:has(#dark-mode-toggle:checked) .link-light:not(.skip-link),
-:root:has(#main-dark:target) .link-light:not(.skip-link),
-:root:has(#dark:target) .link-light:not(.skip-link) {
-  display: none !important;
-}
-
-:root:has(#dark-mode-toggle:checked) .link-light.skip-link,
-:root:has(#main-dark:target) .link-light.skip-link,
-:root:has(#dark:target) .link-light.skip-link {
-  visibility: collapse !important;
-}
-
-:root:has(#dark-mode-toggle:checked) .link-dark:not(.skip-link),
-:root:has(#main-dark:target) .link-dark:not(.skip-link),
-:root:has(#dark:target) .link-dark:not(.skip-link) {
-  display: inline-block !important;
-}
-
-:root:has(#dark-mode-toggle:unchecked) .link-dark:not(.skip-link),
-:root:has(#main-light:target) .link-dark:not(.skip-link),
-:root:has(#light:target) .link-dark:not(.skip-link) {
-  display: none;
-}
-
-:root:has(#dark-mode-toggle:unchecked) .link-dark.skip-link,
-:root:has(#main-light:target) .link-dark.skip-link,
-:root:has(#light:target) .link-dark.skip-link {
-  visibility: collapse;
-}
-
-:root:has(#dark-mode-toggle:unchecked) .link-light.skip-link,
-:root:has(#main-light:target) .link-light.skip-link,
-:root:has(#light:target) .link-light.skip-link {
-  display: inline-block;
-}
-
-:root:has(#main-light:target),
-:root:has(#dark-mode-toggle:unchecked),
-:root:has(#light:target) {
-  --bg: white;
-  --text: black;
-  --toggle-bg: #ebebeb;
-  --gradient-bg1: #ffcc89;
-  --gradient-bg2: #d8860b;
-  --label-left: 2px;
-  --primary-color: lime;
-  --secondary-color: lightgray;
-  --accent-color: lightgreen;
-  --text-color: black;
-  --link-color: #03ec03;
-  --background-color: #f8f8f8;
-  --button-color: white;
-  --button-background-color: black;
-  --button-hover-background-color: #333333;
-  --search-color: #d5efd5;
-  --table-color: black;
-}
-
-:root {
-  --bg: white;
-  --text: black;
-  --toggle-bg: #ebebeb;
-  --gradient-bg1: #ffcc89;
-  --gradient-bg2: #d8860b;
-  --label-left: 2px;
-  --primary-color: lime;
-  --secondary-color: lightgray;
-  --accent-color: lightgreen;
-  --text-color: black;
-  --link-color: #03ec03;
-  --background-color: #f8f8f8;
-  --button-color: white;
-  --button-background-color: black;
-  --button-hover-background-color: #333333;
-  --search-color: #d5efd5;
-  --table-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-
-  :root:has(#main-dark:target),
-  :root:has(#dark-mode-toggle:checked),
-  :root:has(#dark:target) {
-    --bg: black;
-    --text: white;
-    --toggle-bg: #242424;
-    --gradient-bg1: #777;
-    --gradient-bg2: #3a3a3a;
-    --label-left: 62px;
-    --transformantion: translateX(-100%);
-    --primary-color: #00b300;
-    --secondary-color: #a6a6a6;
-    --accent-color: #398AE6;
-    --button-color: #cccccc;
-    --button-background-color: #333333;
-    --button-hover-background-color: #cccccc;
-    --text-color: #ffffff;
-    --link-color: #0ac2e3;
-    --background-color: #333333;
-    --search-color: #31688a;
-    --table-color: white;
-  }
-}
 
 .toggle-bg,
 .toggle-wrapper {
@@ -296,37 +240,37 @@ body {
 }
 
 
-@media (prefers-color-scheme: dark) {
-  #darkmode-toggle:checked~* {
-    --bg: white;
-    --text: black;
-    --toggle-bg: #ebebeb;
-    --gradient-bg1: #ffcc89;
-    --gradient-bg2: #d8860b;
-    --label-left: 37px;
-    --primary-color: #00b300;
-    --secondary-color: #a6a6a6;
-    --accent-color: #99e699;
-    --button-color: #cccccc;
-    --button-background-color: #333333;
-    --button-hover-background-color: #cccccc;
-    --text-color: #ffffff;
-    --link-color: #1a2d1a;
-    --background-color: #333333;
-    --search-color: #1a2d1a;
-    --primary-color: lime;
-    --secondary-color: lightgray;
-    --accent-color: lightgreen;
-    --text-color: black;
-    --link-color: #345634;
-    --background-color: #f8f8f8;
-    --button-color: white;
-    --button-background-color: black;
-    --button-hover-background-color: #333333;
-    --search-color: #d5efd5;
-    --table-color: black;
-  }
-}
+/* @media (prefers-color-scheme: dark) { */
+/*   #darkmode-toggle:checked~* { */
+/*     --bg: white; */
+/*     --text: black; */
+/*     --toggle-bg: #ebebeb; */
+/*     --gradient-bg1: #ffcc89; */
+/*     --gradient-bg2: #d8860b; */
+/*     --label-left: 37px; */
+/*     --primary-color: #00b300; */
+/*     --secondary-color: #a6a6a6; */
+/*     --accent-color: #99e699; */
+/*     --button-color: #cccccc; */
+/*     --button-background-color: #333333; */
+/*     --button-hover-background-color: #cccccc; */
+/*     --text-color: #ffffff; */
+/*     --link-color: #1a2d1a; */
+/*     --background-color: #333333; */
+/*     --search-color: #1a2d1a; */
+/*     --primary-color: lime; */
+/*     --secondary-color: lightgray; */
+/*     --accent-color: lightgreen; */
+/*     --text-color: black; */
+/*     --link-color: #345634; */
+/*     --background-color: #f8f8f8; */
+/*     --button-color: white; */
+/*     --button-background-color: black; */
+/*     --button-hover-background-color: #333333; */
+/*     --search-color: #d5efd5; */
+/*     --table-color: black; */
+/*   } */
+/* } */
 
 
 .nav-style {
