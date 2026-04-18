@@ -111,9 +111,7 @@
 *:not(.nav-style *) {
   box-sizing: border-box;
 }
-.link-dark:not(.skip-link):not(.persistence-link) {
-  text-decoration: none !important;
- } 
+
 /* Prevent the theme logic from ever touching regular page links */
 a:not(.persistence-link):not(.skip-link):not(.link-dark) {
   display: inline-block !important;
@@ -406,7 +404,7 @@ a:not(.link-dark):not(.skip-link):not(.persistence-link) {
 a .link-dark:not(.skip-link):not(.persistence-link):root:has#light:target:root:has(#main-light:target) {
   position: relative;
   display: none;
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--text);
 }
 
