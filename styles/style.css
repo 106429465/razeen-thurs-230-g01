@@ -60,15 +60,12 @@
   display: none !important;
 }
 
-:root:not(:has(#light:target)):not(:has(#main-light:target)) .link-dark.persistence-link {
-  display: none !important;
-}
-
 :root:has(#dark:target) .link-dark.persistence-link,
 :root:has(#main-dark:target) .link-dark.persistence-link {
   display: none !important;
 }
 
+:root:not(:has(#dark:target)):not(:has(#main-dark:target)) .link-dark:not(.skip-link):not(.persistence-link),
 :root:has(#light:target) .link-dark:not(.skip-link):not(.persistence-link),
 :root:has(#main-light:target) .link-dark:not(.skip-link):not(.persistence-link),
 :root:has(#dark:target) .link-light:not(.skip-link):not(.persistence-link),
@@ -404,7 +401,7 @@ a:not(.link-dark):not(.skip-link):not(.persistence-link) {
 a .link-dark:not(.skip-link):not(.persistence-link):root:has#light:target:root:has(#main-light:target) {
   position: relative;
   display: none;
-  text-decoration: none !important;
+  text-decoration: none;
   color: var(--text);
 }
 
