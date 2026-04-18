@@ -1,6 +1,6 @@
 @font-face {
   font-family: imperitum;
-  src: url('fonts/Imperitum-Regular.ttf');
+  src: url('../fonts/Imperitum-Regular.ttf');
 }
 
 /* The following 3 :root section actually let the css themse work*/
