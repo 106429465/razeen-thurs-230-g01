@@ -3,6 +3,10 @@
   src: url('../fonts/Imperitum-Regular.ttf');
 }
 
+a {
+  text-decoration: none !important;
+}
+
 /* The following 3 :root section actually let the css themse work*/
 :root,
 :root:has(#main-light:target),
@@ -481,7 +485,7 @@ footer a {
 
 @keyframes scrollLeft {
   from {
-    transform: translateX(100%);
+    transform: translateX(100vw);
   }
 
   to {
@@ -492,8 +496,10 @@ footer a {
 .scrolling-content {
   display: inline-block;
   overflow-x: hidden;
+  width: max-content;
   white-space: nowrap;
-  animation: scrollLeft 15s linear infinite;
+  flex-shrink: 0;
+  animation: scrollLeft 30s linear infinite;
 }
 
 
@@ -505,22 +511,6 @@ footer a {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-}
-
-@keyframes scrollLeft {
-  from {
-    transform: translateX(100vw);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.scrolling-content {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scrollLeft 30s linear infinite;
 }
 
 .pause-check:checked~.scrolling-content {
@@ -542,7 +532,14 @@ footer a {
 }
 
 .pause-check {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .pause-label {
@@ -560,6 +557,15 @@ footer a {
 }
 
 @media (max-width: 850px) {
+
+  .scrolling-content {
+    display: inline-block;
+    overflow-x: hidden;
+    width: max-content;
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: scrollLeft 30s linear infinite;
+  }
 
   header {
     display: flex !important;
